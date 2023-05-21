@@ -18,6 +18,7 @@ import Settings from './pages/Settings';
 import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
+import Users from './pages/UsersTable';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -55,6 +56,7 @@ function App() {
         <Route path="/forms/Exercise" element={<Exercise />} />
         <Route path="/forms/SpeechTherapist" element={<SpeechTherapist />} />
         <Route path="/tables" element={<Tables />} />
+        <Route path="/users" element={<Users />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/chart" element={<Chart />} />
         <Route path="/ui/alerts" element={<Alerts />} />

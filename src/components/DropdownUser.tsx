@@ -1,9 +1,26 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import UserOne from '../images/user/user-01.png';
-
+import { getAccessToken } from '../pages/Authentication/SignIn';
+import axios from 'axios';
+interface Item {
+  firstName: string;
+  lastName: string;
+  email: string;
+  avatar: string;
+}
 const DropdownUser = () => {
+  const [data, setData] = useState<Item | null>(null);
+  const accessToken = getAccessToken();
+  if (accessToken) {
+    // Include the access token in the request headers
+    axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+  } else {
+    // Handle the case when the access token is not available
+    // For example, redirect the user to the login page
+    // or display an error message
+    console.error('Access token not found');
+  }
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef<any>(null);
@@ -27,13 +44,23 @@ const DropdownUser = () => {
 
   // close if the esc key is pressed
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3333/users/me');
+        setData(response.data);
+      } catch (error) {
+        console.log('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
     const keyHandler = ({ keyCode }: KeyboardEvent) => {
       if (!dropdownOpen || keyCode !== 27) return;
       setDropdownOpen(false);
     };
     document.addEventListener('keydown', keyHandler);
     return () => document.removeEventListener('keydown', keyHandler);
-  });
+  }, []);
 
   return (
     <div className="relative">
@@ -43,17 +70,23 @@ const DropdownUser = () => {
         className="flex items-center gap-4"
         to="#"
       >
-        <span className="hidden text-right lg:block">
-          <span className="block text-sm font-medium text-black dark:text-white">
-            Yedil Sanatov
-          </span>
-          <span className="block text-xs">Backend and DB devoloper</span>
-        </span>
+        {data && (
+          <div className="flex items-center gap-2">
+            <span className="hidden text-right xl:block">
+              <span className="block text-sm font-medium text-black dark:text-white">
+                {data.firstName} {data.lastName}
+              </span>
+            </span>
 
-        <span className="h-12 w-12 rounded-full">
-          <img src={UserOne} alt="User" />
-        </span>
-
+            <span>
+              <img
+                src={data.avatar}
+                alt="User"
+                className="h-12 w-12 rounded-full"
+              />
+            </span>
+          </div>
+        )}
         <svg
           className={`hidden fill-current sm:block ${
             dropdownOpen ? 'rotate-180' : ''
