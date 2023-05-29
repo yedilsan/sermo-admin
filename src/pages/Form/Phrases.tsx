@@ -114,7 +114,7 @@ const Phrases = () => {
                 }
 
                 axios
-                  .post('http://localhost:3333/phrases/', formData)
+                  .post('https://sermo-backend.onrender.com/phrases/', formData)
                   .then((response) => {
                     console.log('Response:', response.data);
 
@@ -236,7 +236,8 @@ const Phrases = () => {
 
                 axios
                   .patch(
-                    'http://localhost:3333/phrases/' + phraseIdInput,
+                    'https://sermo-backend.onrender.com/phrases/' +
+                      phraseIdInput,
                     formData
                   )
                   .then((response) => {
@@ -287,7 +288,10 @@ const Phrases = () => {
             <button
               onClick={() => {
                 axios
-                  .delete('http://localhost:3333/phrases/' + phraseIdInput)
+                  .delete(
+                    'https://sermo-backend.onrender.com/phrases/' +
+                      phraseIdInput
+                  )
                   .then((response) => {
                     console.log('Response:', response.data);
 

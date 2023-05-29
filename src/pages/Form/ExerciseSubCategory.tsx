@@ -66,10 +66,13 @@ const ExerciseSubCategory = () => {
             <button
               onClick={() => {
                 axios
-                  .post('http://localhost:3333/exercise-sub-categories/', {
-                    text: textInput,
-                    exerciseCategoryId: categoryIdInput,
-                  })
+                  .post(
+                    'https://sermo-backend.onrender.com/exercise-sub-categories/',
+                    {
+                      text: textInput,
+                      exerciseCategoryId: categoryIdInput,
+                    }
+                  )
                   .then((response) => {
                     console.log('Response:', response.data);
 
@@ -145,7 +148,7 @@ const ExerciseSubCategory = () => {
               onClick={() => {
                 axios
                   .patch(
-                    'http://localhost:3333/exercise-sub-categories/' +
+                    'https://sermo-backend.onrender.com/exercise-sub-categories/' +
                       exerciseSubCatIdInput,
                     {
                       text: textInput,

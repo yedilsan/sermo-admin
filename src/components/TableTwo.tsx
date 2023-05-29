@@ -29,7 +29,9 @@ const TableTwo = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3333/phrase-bank');
+        const response = await axios.get(
+          'https://sermo-backend.onrender.com/phrase-bank'
+        );
         setData(response.data);
       } catch (error) {
         console.log('Error fetching data:', error);
@@ -48,7 +50,7 @@ const TableTwo = () => {
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
   const handleDelete = (itemId: number) => {
     axios
-      .delete(`http://localhost:3333/phrase-bank/${itemId}`)
+      .delete(`https://sermo-backend.onrender.com/phrase-bank/${itemId}`)
       .then((response) => {
         console.log('Response:', response.data);
         window.alert('Delete request successful');

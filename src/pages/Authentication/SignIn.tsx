@@ -15,10 +15,13 @@ const SignIn = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3333/auth/signin', {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        'https://sermo-backend.onrender.com/auth/signin',
+        {
+          email,
+          password,
+        }
+      );
       const { access_token } = response.data;
 
       localStorage.setItem('access_token', access_token);

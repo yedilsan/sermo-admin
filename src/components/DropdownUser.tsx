@@ -46,7 +46,9 @@ const DropdownUser = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3333/users/me');
+        const response = await axios.get(
+          'https://sermo-backend.onrender.com/users/me'
+        );
         setData(response.data);
       } catch (error) {
         console.log('Error fetching data:', error);

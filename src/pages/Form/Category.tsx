@@ -86,7 +86,7 @@ const Category = () => {
                 }
 
                 axios
-                  .post('http://localhost:3333/category', formData)
+                  .post('https://sermo-backend.onrender.com/category', formData)
                   .then((response) => {
                     console.log('Response:', response.data);
 
@@ -180,7 +180,8 @@ const Category = () => {
 
                 axios
                   .patch(
-                    'http://localhost:3333/category/' + categoryIdInput,
+                    'https://sermo-backend.onrender.com/category/' +
+                      categoryIdInput,
                     formData
                   )
                   .then((response) => {
@@ -232,7 +233,10 @@ const Category = () => {
             <button
               onClick={() => {
                 axios
-                  .delete('http://localhost:3333/category/' + categoryIdInput)
+                  .delete(
+                    'https://sermo-backend.onrender.com/category/' +
+                      categoryIdInput
+                  )
                   .then((response) => {
                     console.log('Response:', response.data);
 

@@ -27,7 +27,9 @@ const TableOne = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3333/category');
+        const response = await axios.get(
+          'https://sermo-backend.onrender.com/category'
+        );
         setData(response.data);
       } catch (error) {
         console.log('Error fetching data:', error);
@@ -44,7 +46,7 @@ const TableOne = () => {
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
   const handleDelete = (itemId: number) => {
     axios
-      .delete(`http://localhost:3333/category/${itemId}`)
+      .delete(`https://sermo-backend.onrender.com/category/${itemId}`)
       .then((response) => {
         console.log('Response:', response.data);
         window.alert('Delete request successful');

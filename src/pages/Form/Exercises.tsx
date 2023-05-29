@@ -103,7 +103,10 @@ const Exercises = () => {
                 }
 
                 axios
-                  .post('http://localhost:3333/exercises/', formData)
+                  .post(
+                    'https://sermo-backend.onrender.com/exercises/',
+                    formData
+                  )
                   .then((response) => {
                     console.log('Response:', response.data);
 
@@ -199,7 +202,8 @@ const Exercises = () => {
 
                 axios
                   .patch(
-                    'http://localhost:3333/exercises/' + exerciseIdInput,
+                    'https://sermo-backend.onrender.com/exercises/' +
+                      exerciseIdInput,
                     formData
                   )
                   .then((response) => {

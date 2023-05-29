@@ -32,7 +32,9 @@ const Tables = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3333/users');
+        const response = await axios.get(
+          'https://sermo-backend.onrender.com/users'
+        );
         setData(response.data);
       } catch (error) {
         console.log('Error fetching data:', error);

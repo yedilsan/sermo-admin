@@ -79,7 +79,10 @@ const ExerciseCategory = () => {
                 }
 
                 axios
-                  .post('http://localhost:3333/exercise-category/', formData)
+                  .post(
+                    'https://sermo-backend.onrender.com/exercise-category/',
+                    formData
+                  )
                   .then((response) => {
                     console.log('Response:', response.data);
 
@@ -176,7 +179,7 @@ const ExerciseCategory = () => {
 
                 axios
                   .patch(
-                    'http://localhost:3333/exercise-category/' +
+                    'https://sermo-backend.onrender.com/exercise-category/' +
                       exerciseCategoryIdInput,
                     formData
                   )

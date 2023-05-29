@@ -100,7 +100,10 @@ const Phrasebank = () => {
                 }
 
                 axios
-                  .post('http://localhost:3333/phrase-bank/', formData)
+                  .post(
+                    'https://sermo-backend.onrender.com/phrase-bank/',
+                    formData
+                  )
                   .then((response) => {
                     console.log('Response:', response.data);
 
@@ -208,7 +211,8 @@ const Phrasebank = () => {
 
                 axios
                   .patch(
-                    'http://localhost:3333/phrase-bank/' + phraseBankIdInput,
+                    'https://sermo-backend.onrender.com/phrase-bank/' +
+                      phraseBankIdInput,
                     formData
                   )
                   .then((response) => {
@@ -260,7 +264,8 @@ const Phrasebank = () => {
               onClick={() => {
                 axios
                   .delete(
-                    'http://localhost:3333/phrase-bank/' + phraseBankIdInput
+                    'https://sermo-backend.onrender.com/phrase-bank/' +
+                      phraseBankIdInput
                   )
                   .then((response) => {
                     console.log('Response:', response.data);

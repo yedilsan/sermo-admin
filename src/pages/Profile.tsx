@@ -26,7 +26,9 @@ const Profile = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3333/users/me');
+        const response = await axios.get(
+          'https://sermo-backend.onrender.com/users/me'
+        );
         setData(response.data);
       } catch (error) {
         console.log('Error fetching data:', error);
@@ -45,7 +47,7 @@ const Profile = () => {
     }
 
     axios
-      .patch('http://localhost:3333/users/avatar', formData)
+      .patch('https://sermo-backend.onrender.com/users/avatar', formData)
       .then((response) => {
         console.log('Response:', response.data);
         setData((prevData) => ({

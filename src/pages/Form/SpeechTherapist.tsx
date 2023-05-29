@@ -90,13 +90,16 @@ const SpeechTherapist = () => {
                 <button
                   onClick={() => {
                     axios
-                      .post('http://localhost:3333/speech-therapist', {
-                        name: NameInput,
-                        phone: PhoneInput,
-                        email: EmailInput,
-                        address: AddressInput,
-                        rating: RatingInput,
-                      })
+                      .post(
+                        'https://sermo-backend.onrender.com/speech-therapist',
+                        {
+                          name: NameInput,
+                          phone: PhoneInput,
+                          email: EmailInput,
+                          address: AddressInput,
+                          rating: RatingInput,
+                        }
+                      )
                       .then((response) => {
                         console.log('Response:', response.data);
 
