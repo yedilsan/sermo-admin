@@ -87,27 +87,21 @@ const TableOne = () => {
         </div>
         {currentItems.length > 0 ? (
           currentItems.map((item) => (
-            <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-4">
-              <div
-                key={item.id}
-                className="flex items-center gap-3 p-2.5 xl:p-5"
-              >
+            <div
+              key={item.id}
+              className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-4"
+            >
+              <div className="flex items-center gap-3 p-2.5 xl:p-5">
                 <p className="hidden text-black dark:text-white sm:block">
                   {item.id}
                 </p>
               </div>
 
-              <div
-                key={item.text}
-                className="flex items-center justify-center p-2.5 xl:p-5"
-              >
+              <div className="flex items-center justify-center p-2.5 xl:p-5">
                 <p className="text-black dark:text-white">{item.text}</p>
               </div>
 
-              <div
-                key={item.image}
-                className="flex items-center justify-center p-2.5 xl:p-5"
-              >
+              <div className="flex items-center justify-center p-2.5 xl:p-5">
                 <a href={item.image} target="_blank" rel="noopener noreferrer">
                   <img
                     className="h-20 w-20 object-contain"

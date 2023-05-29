@@ -30,6 +30,7 @@ const Profile = () => {
           'https://sermo-backend.onrender.com/users/me'
         );
         setData(response.data);
+        console.log('Response:', response.data);
       } catch (error) {
         console.log('Error fetching data:', error);
       }
@@ -78,7 +79,7 @@ const Profile = () => {
             <div className="relative z-30 mx-auto -mt-22 h-30 w-full max-w-30 rounded-full bg-white/20 p-1 backdrop-blur sm:h-44 sm:max-w-44 sm:p-3">
               <div className="relative drop-shadow-2">
                 <img
-                  src={data.avatar}
+                  src={data.avatar ?? '/user-01.png'}
                   alt="profile"
                   className=" w-full rounded-full "
                 />

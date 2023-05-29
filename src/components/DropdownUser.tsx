@@ -82,7 +82,7 @@ const DropdownUser = () => {
 
             <span>
               <img
-                src={data.avatar}
+                src={data.avatar ?? '/user-01.png'}
                 alt="User"
                 className="h-12 w-12 rounded-full"
               />

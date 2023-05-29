@@ -11,10 +11,7 @@ import ExerciseCategory from './pages/Form/ExerciseCategory';
 import ExerciseSubCategory from './pages/Form/ExerciseSubCategory';
 import SpeechTherapist from './pages/Form/SpeechTherapist';
 import Profile from './pages/Profile';
-import Settings from './pages/Settings';
 import Tables from './pages/Tables';
-import Alerts from './pages/UiElements/Alerts';
-import Buttons from './pages/UiElements/Buttons';
 import Users from './pages/UsersTable';
 
 function App() {
@@ -52,9 +49,6 @@ function App() {
         <Route path="/forms/SpeechTherapist" element={<SpeechTherapist />} />
         <Route path="/tables" element={<Tables />} />
         <Route path="/users" element={<Users />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/ui/alerts" element={<Alerts />} />
-        <Route path="/ui/buttons" element={<Buttons />} />
       </Routes>
     </>
   );
